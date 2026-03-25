@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Nasha 🌿</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;1,400&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --lilac: #c4a8d4; --lilac-light: #e8d9f0; --lilac-pale: #f4edf8;
+    --lilac-deep: #9b7ab5; --sage: #b8c9b0; --cream: #faf6f0;
+    --text: #4a3f5c; --text-light: #7a6a8a;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body { background:var(--cream); font-family:'Crimson Pro',serif; color:var(--text); min-height:100vh; overflow-x:hidden; }
+  body::before {
+    content:''; position:fixed; inset:0;
+    background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events:none; z-index:100; opacity:0.4;
+  }
+  .blob { position:fixed; border-radius:50%; filter:blur(80px); opacity:0.22; pointer-events:none; animation:blobDrift 12s ease-in-out infinite alternate; }
+  .blob-1 { width:420px; height:420px; background:var(--lilac); top:-120px; left:-120px; }
+  .blob-2 { width:320px; height:320px; background:#d4b8e0; bottom:0; right:-80px; animation-delay:-4s; }
+  .blob-3 { width:220px; height:220px; background:var(--sage); top:50%; left:55%; animation-delay:-8s; }
+  @keyframes blobDrift { from{transform:translate(0,0) scale(1);} to{transform:translate(30px,20px) scale(1.08);} }
+
+  .page { max-width:680px; margin:0 auto; padding:60px 32px 80px; position:relative; z-index:1; }
+
+  /* GREETING */
+  .greeting { text-align:center; margin-bottom:48px; animation:fadeUp 1s ease both; }
+  .greeting .hey { font-weight:300; font-style:italic; font-size:1.05rem; color:var(--lilac-deep); letter-spacing:0.12em; margin-bottom:8px; opacity:0.8; }
+  .greeting h1 { font-family:'Playfair Display',serif; font-size:clamp(2.6rem,8vw,4rem); font-weight:500; line-height:1.1; }
+  .greeting h1 span { color:var(--lilac-deep); font-style:italic; }
+  .greeting .subtitle { margin-top:14px; font-size:1.05rem; color:var(--text-light); font-weight:300; font-style:italic; }
+
+  /* CAT HERO */
+  .cat-hero {
+    background:linear-gradient(135deg,#f0e6f8,#faf6f0 60%,#e8f0e8);
+    border-radius:24px; padding:36px 32px 28px; margin-bottom:28px;
+    border:1px solid rgba(196,168,212,0.3); box-shadow:0 6px 32px rgba(155,122,181,0.1);
+    text-align:center; animation:fadeUp 1s 0.15s ease both; position:relative; overflow:hidden;
+  }
+  .cat-hero::before {
+    content:''; position:absolute; top:0; left:0; right:0; height:3px;
+    background:linear-gradient(90deg,var(--sage),var(--lilac),var(--lilac-deep),var(--lilac),var(--sage));
+  }
+  .big-cat {
+    font-size:5rem; display:block; margin-bottom:6px;
+    animation:catFloat 3.5s ease-in-out infinite;
+    cursor:pointer; user-select:none; transition:transform 0.15s; line-height:1.2;
+  }
+  @keyframes catFloat { 0%,100%{transform:translateY(0) rotate(-1deg);} 50%{transform:translateY(-10px) rotate(1deg);} }
+  .cat-mood { font-family:'Playfair Display',serif; font-size:1.1rem; color:var(--lilac-deep); font-style:italic; margin-bottom:4px; }
+  .cat-sub { font-size:0.88rem; color:var(--text-light); margin-bottom:18px; }
+
+  .wisdom-bubble {
+    background:white; border-radius:16px; padding:18px 24px 14px; margin:0 auto 16px;
+    max-width:480px; border:1px solid rgba(196,168,212,0.35);
+    box-shadow:0 3px 16px rgba(155,122,181,0.1);
+    font-size:1rem; color:var(--text); line-height:1.65; font-style:italic;
+    min-height:64px; position:relative;
+  }
+  .wisdom-bubble::before {
+    content:'"'; position:absolute; top:-10px; left:14px;
+    font-family:'Playfair Display',serif; font-size:2.8rem; color:var(--lilac); line-height:1;
+  }
+  .wisdom-author { font-size:0.82rem; color:var(--lilac-deep); text-align:right; margin-top:6px; font-style:normal; display:block; }
+
+  .paw-btn {
+    margin:10px 5px 0; background:none; border:1.5px solid var(--lilac);
+    color:var(--lilac-deep); padding:8px 20px; border-radius:30px;
+    font-family:'Crimson Pro',serif; font-size:0.92rem; font-style:italic;
+    cursor:pointer; transition:all 0.2s; display:inline-block;
+  }
+  .paw-btn:hover { background:var(--lilac-pale); transform:scale(1.04); }
+  .tap-prompt { font-size:0.82rem; color:var(--text-light); opacity:0.7; margin-top:12px; }
+
+  /* CASSETTE */
+  .cassette-card {
+    background:white; border-radius:20px; padding:26px 30px; margin-bottom:28px;
+    border:1px solid rgba(196,168,212,0.3); box-shadow:0 4px 24px rgba(155,122,181,0.08);
+    animation:fadeUp 1s 0.3s ease both; position:relative; overflow:hidden;
+  }
+  .cassette-card::before {
+    content:''; position:absolute; top:0; left:0; right:0; height:3px;
+    background:linear-gradient(90deg,var(--lilac),var(--lilac-deep),var(--sage));
+  }
+  .cassette-label { font-size:0.68rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--lilac-deep); margin-bottom:10px; opacity:0.7; }
+  .track-selector { display:flex; gap:8px; margin-bottom:16px; flex-wrap:wrap; }
+  .track-pill {
+    padding:6px 14px; border-radius:20px; border:1.5px solid var(--lilac-light);
+    background:none; font-family:'Crimson Pro',serif; font-size:0.84rem;
+    color:var(--text-light); cursor:pointer; transition:all 0.2s; font-style:italic;
+  }
+  .track-pill:hover { border-color:var(--lilac); color:var(--text); }
+  .track-pill.active { background:var(--lilac-deep); border-color:var(--lilac-deep); color:white; font-style:normal; }
+  .cassette-title { font-family:'Playfair Display',serif; font-size:1.2rem; margin-bottom:2px; }
+  .cassette-artist { font-size:0.9rem; color:var(--text-light); font-style:italic; margin-bottom:16px; }
+  .cassette-visual { display:flex; align-items:center; margin-bottom:16px; }
+  .reel-container { display:flex; gap:28px; align-items:center; flex:1; }
+  .reel { width:36px; height:36px; border-radius:50%; border:2px solid var(--lilac); position:relative; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  .reel::before { content:''; width:10px; height:10px; border-radius:50%; background:var(--lilac-deep); }
+  .reel::after { content:''; position:absolute; width:26px; height:26px; border-radius:50%; border:1px dashed rgba(196,168,212,0.6); }
+  .reel.spinning { animation:spin 2.5s linear infinite; }
+  @keyframes spin { from{transform:rotate(0deg);} to{transform:rotate(360deg);} }
+  .tape-line { flex:1; height:2px; background:linear-gradient(90deg,var(--lilac-light),var(--lilac),var(--lilac-light)); border-radius:2px; overflow:hidden; position:relative; }
+  .tape-line::after { content:''; position:absolute; top:0; left:-100%; width:60%; height:100%; background:linear-gradient(90deg,transparent,white,transparent); animation:tapeShimmer 2s linear infinite; }
+  @keyframes tapeShimmer { to{left:200%;} }
+  .progress-track { height:4px; background:var(--lilac-light); border-radius:4px; margin-bottom:8px; cursor:pointer; }
+  .progress-fill { height:100%; width:0%; background:linear-gradient(90deg,var(--lilac),var(--lilac-deep)); border-radius:4px; transition:width 0.2s linear; pointer-events:none; }
+  .time-row { display:flex; justify-content:space-between; font-size:0.78rem; color:var(--text-light); margin-bottom:16px; font-variant-numeric:tabular-nums; }
+  .controls { display:flex; align-items:center; justify-content:center; gap:20px; }
+  .ctrl-btn { background:none; border:none; cursor:pointer; color:var(--text-light); font-size:1rem; padding:6px; border-radius:50%; transition:color 0.2s,transform 0.15s; display:flex; align-items:center; }
+  .ctrl-btn:hover { color:var(--lilac-deep); transform:scale(1.1); }
+  .ctrl-btn.play-btn { width:46px; height:46px; background:var(--lilac-deep); color:white; font-size:1.1rem; box-shadow:0 4px 14px rgba(155,122,181,0.4); border-radius:50%; }
+  .ctrl-btn.play-btn:hover { background:#7a5a9a; }
+  .volume-row { display:flex; align-items:center; gap:10px; margin-top:12px; }
+  .volume-row span { font-size:0.9rem; opacity:0.6; }
+  .volume-slider { flex:1; -webkit-appearance:none; appearance:none; height:3px; border-radius:3px; background:var(--lilac-light); outline:none; cursor:pointer; }
+  .volume-slider::-webkit-slider-thumb { -webkit-appearance:none; width:13px; height:13px; border-radius:50%; background:var(--lilac-deep); cursor:pointer; }
+
+
+
+  /* LETTER */
+  .letter {
+    background:white; border-radius:20px; padding:34px 34px 30px;
+    border:1px solid rgba(196,168,212,0.3); box-shadow:0 4px 24px rgba(155,122,181,0.08);
+    margin-bottom:32px; animation:fadeUp 1s 0.6s ease both; position:relative;
+  }
+  .letter::after { content:'✦'; position:absolute; top:18px; right:22px; color:var(--lilac); font-size:1rem; opacity:0.5; }
+  .letter p { font-size:1.03rem; line-height:1.88; color:var(--text); font-weight:300; }
+  .letter p+p { margin-top:13px; }
+  .letter .sign-off { margin-top:18px; font-family:'Playfair Display',serif; font-style:italic; color:var(--lilac-deep); font-size:1.05rem; }
+
+  .flowers { text-align:center; animation:fadeUp 1s 0.75s ease both; }
+  .flowers-row { font-size:1.5rem; letter-spacing:0.2em; margin-bottom:10px; opacity:0.7; }
+  .flowers p { font-size:0.83rem; color:var(--text-light); font-style:italic; }
+
+  @keyframes fadeUp { from{opacity:0;transform:translateY(22px);} to{opacity:1;transform:translateY(0);} }
+  @keyframes wisdomIn { from{opacity:0;transform:scale(0.97);} to{opacity:1;transform:scale(1);} }
+  .wisdom-animate { animation:wisdomIn 0.35s ease both; }
+
+  @media(max-width:480px) {
+    .cards{grid-template-columns:1fr;}
+    .page{padding:36px 18px 60px;}
+    .letter{padding:26px 22px;}
+    .track-pill{font-size:0.78rem; padding:5px 10px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="blob blob-1"></div>
+<div class="blob blob-2"></div>
+<div class="blob blob-3"></div>
+
+<div class="page">
+
+  <div class="greeting">
+    <div class="hey">a little something for you ✦</div>
+    <h1>hey, <span>Nasha</span> 🌿</h1>
+    <div class="subtitle">this week was hard. you deserved better.</div>
+  </div>
+
+  <div class="cat-hero">
+    <span class="big-cat" id="bigCat" onclick="newWisdom()">🐱</span>
+    <div class="cat-mood">your unofficial emotional support cat</div>
+    <div class="cat-sub">tap the cat anytime for a little something 🐾</div>
+    <div class="wisdom-bubble" id="wisdomBubble">
+      <div>
+        <span>I sat here and guarded your peace all week. You are welcome.</span>
+        <span class="wisdom-author">— the cat</span>
+      </div>
+    </div>
+    <div>
+      <button class="paw-btn" onclick="newWisdom()">🐾 another one</button>
+      <button class="paw-btn" id="moodBtn" onclick="cycleMood()">😼 change my mood</button>
+    </div>
+    <div class="tap-prompt">tap the cat or the button • she has a lot to say</div>
+  </div>
+
+  <div class="cassette-card">
+    <div class="cassette-label">now playing</div>
+    <div class="track-selector">
+      <button class="track-pill active" onclick="selectTrack(0)">Understand – keshi</button>
+      <button class="track-pill" onclick="selectTrack(1)">The Most Beautiful Thing</button>
+      <button class="track-pill" onclick="selectTrack(2)">Moonlight on the River</button>
+    </div>
+    <div class="cassette-title" id="trackTitle">Understand</div>
+    <div class="cassette-artist" id="trackArtist">keshi</div>
+    <div class="cassette-visual">
+      <div class="reel-container">
+        <div class="reel" id="reel1"></div>
+        <div class="tape-line"></div>
+        <div class="reel" id="reel2"></div>
+      </div>
+    </div>
+    <div class="progress-track" id="progressTrack">
+      <div class="progress-fill" id="progressFill"></div>
+    </div>
+    <div class="time-row">
+      <span id="currentTime">0:00</span>
+      <span id="totalTime">0:00</span>
+    </div>
+    <div class="controls">
+      <button class="ctrl-btn" onclick="prevTrack()" title="Previous track">⏮</button>
+      <button class="ctrl-btn play-btn" id="playBtn" onclick="togglePlay()">▶</button>
+      <button class="ctrl-btn" onclick="nextTrack()" title="Next track">⏭</button>
+    </div>
+    <div class="volume-row">
+      <span>🔈</span>
+      <input type="range" class="volume-slider" id="volSlider" min="0" max="1" step="0.02" value="0.85" oninput="setVolume(this.value)">
+      <span>🔊</span>
+    </div>
+  </div>
+
+
+
+  <div class="letter">
+    <p>Dear Nasha,</p>
+    <p>I know this week drained you in so many different ways. The amount of PETAs that you had to do, those high cortisol classmates of yours, and so many more stressful things.</p>
+    <p>But I see you. I see how hard you try every single day, even when it's hard, even when no one notices. That matters. You matter. And I'm so so proud of you, my sweet baby.</p>
+    <p>Take a break po, my love. Let yourself just... be. Take a breather, pet this imaginary cat... ask the cat some insights if u want, put on some music, and let the week fade into the background. You've earned it. You always do.</p>
+    <p>Rest well my baby, you deserve it! Mwaaahh</p>
+    <div class="sign-off">Sincerely yours, Brent. 💜</div>
+  </div>
+
+  <div class="flowers">
+    <div class="flowers-row">💜 🌿 💜 🌿 💜</div>
+    <p>lilacs bloom for the ones who keep going</p>
+  </div>
+
+</div>
+
+<audio id="audioPlayer" preload="none"></audio>
+
+<script>
+  const TRACKS = [
+    { title:"Understand", artist:"keshi", src:"understand.mp3" },
+    { title:"The Most Beautiful Thing", artist:"Bruno Major", src:"beautiful.mp3" },
+    { title:"Moonlight on the River", artist:"Mac DeMarco", src:"moonlight.mp3" }
+  ];
+
+  const audio = document.getElementById('audioPlayer');
+  let currentIdx = 0, isPlaying = false;
+
+  function fmt(s) {
+    if (isNaN(s)||!isFinite(s)) return '0:00';
+    return Math.floor(s/60)+':'+String(Math.floor(s%60)).padStart(2,'0');
+  }
+
+  function updatePills() {
+    document.querySelectorAll('.track-pill').forEach((p,i)=>p.classList.toggle('active', i===currentIdx));
+  }
+
+  function loadTrack(idx, autoplay) {
+    currentIdx = idx;
+    const t = TRACKS[idx];
+    document.getElementById('trackTitle').textContent = t.title;
+    document.getElementById('trackArtist').textContent = t.artist;
+    audio.src = t.src;
+    audio.load();
+    audio.volume = parseFloat(document.getElementById('volSlider').value);
+    document.getElementById('progressFill').style.width = '0%';
+    document.getElementById('currentTime').textContent = '0:00';
+    document.getElementById('totalTime').textContent = '0:00';
+    updatePills();
+    if (autoplay) {
+      audio.play().then(()=>{ isPlaying=true; updatePlayBtn(); spinReels(true); }).catch(()=>{ isPlaying=false; updatePlayBtn(); spinReels(false); });
+    }
+  }
+
+  function selectTrack(idx) {
+    const was = isPlaying;
+    if (isPlaying) { audio.pause(); isPlaying=false; spinReels(false); }
+    loadTrack(idx, was);
+  }
+
+  function togglePlay() {
+    if (isPlaying) {
+      audio.pause(); isPlaying=false; spinReels(false); updatePlayBtn();
+    } else {
+      if (!audio.src || audio.src === window.location.href) loadTrack(currentIdx, false);
+      audio.play().then(()=>{ isPlaying=true; spinReels(true); updatePlayBtn(); }).catch(()=>{ isPlaying=false; updatePlayBtn(); spinReels(false); });
+    }
+  }
+
+  function prevTrack() {
+    const newIdx = (currentIdx - 1 + TRACKS.length) % TRACKS.length;
+    loadTrack(newIdx, isPlaying);
+  }
+
+  function nextTrack() {
+    const newIdx = (currentIdx + 1) % TRACKS.length;
+    loadTrack(newIdx, isPlaying);
+  }
+
+  function updatePlayBtn() { document.getElementById('playBtn').textContent = isPlaying ? '⏸' : '▶'; }
+  function spinReels(on) {
+    document.getElementById('reel1').classList.toggle('spinning', on);
+    document.getElementById('reel2').classList.toggle('spinning', on);
+  }
+  function setVolume(v) { audio.volume = v; }
+
+  audio.addEventListener('timeupdate', () => {
+    if (!audio.duration) return;
+    document.getElementById('progressFill').style.width = (audio.currentTime/audio.duration*100)+'%';
+    document.getElementById('currentTime').textContent = fmt(audio.currentTime);
+    document.getElementById('totalTime').textContent = fmt(audio.duration);
+  });
+  audio.addEventListener('ended', () => {
+    isPlaying = false; updatePlayBtn(); spinReels(false);
+    // auto-advance to next track
+    nextTrack();
+  });
+  document.getElementById('progressTrack').addEventListener('click', function(e) {
+    if (!audio.duration) return;
+    const r = this.getBoundingClientRect();
+    audio.currentTime = ((e.clientX-r.left)/r.width)*audio.duration;
+  });
+
+  // CAT MOODS
+  const catMoods = [
+    {emoji:'🐱',label:'cozy mode'},{emoji:'😼',label:'judgy mode'},
+    {emoji:'🙀',label:'shocked mode'},{emoji:'😿',label:'sympathetic mode'},
+    {emoji:'😸',label:'proud mode'},{emoji:'🐈',label:'sleepy mode'},
+  ];
+  let moodIdx = 0;
+  function cycleMood() {
+    moodIdx = (moodIdx+1)%catMoods.length;
+    document.getElementById('bigCat').textContent = catMoods[moodIdx].emoji;
+    document.getElementById('moodBtn').textContent = '✨ '+catMoods[moodIdx].label;
+  }
+
+  // CAT WISDOMS
+  const wisdoms = [
+    ["You did your best this week. That is enough. That will always be enough.", "— the cat"],
+    ["I have been watching you all week. You are, without a doubt, the most hardworking human I know. This is high praise. I also know a dog.", "— the cat"],
+    ["You are doing so well. I know it does not feel like it. But from my vantage point on this pillow, you are absolutely killing it.", "— the cat"],
+    ["Nasha. My love. You are softer than a sunbeam and stronger than you think.", "— the cat (being uncharacteristically sincere)"],
+    ["Every PETA you submitted was a small victory. You got through all of them. That is genuinely impressive and I am judging you a little less today.", "— the cat"],
+    ["Those high cortisol classmates of yours? I would have knocked all their stuff off the table. Consider this my contribution.", "— the cat, fully serious"],
+    ["I have thought about your week and I have concluded: everyone who stressed you out deserves to step on a wet floor in socks.", "— the cat, delivering justice"],
+    ["PETA after PETA after PETA. If I had homework I would also be stressed. I do not. This is why I thrive.", "— the cat, unbothered"],
+    ["Stress levels: you — very high. Me — zero. I am legally required to share my calm with you now.", "— the cat, generously"],
+    ["You survived 100% of your bad days so far. Statistically, this one is not going to get you either. Trust the data.", "— the cat, a statistician"],
+    ["I tried to fix your problems but I knocked over a glass instead. I believe this helped symbolically.", "— the cat"],
+    ["I am sitting on your notes. This is how I protect them. You are welcome.", "— the cat, helping"],
+    ["I have reviewed your week and filed a formal complaint on your behalf. It is currently being ignored. But it was very strongly worded.", "— the cat"],
+    ["Plot twist: you are the most beautiful thing. (Bruno Major agrees.)", "— the cat"],
+    ["Close your eyes. Let the music play. Nothing needs to be solved tonight.", "— the cat"],
+    ["You are allowed to do absolutely nothing tonight. Not productive nothing. Just... nothing.", "— the cat"],
+    ["Rest is not a reward. It is not something you earn. It is just the next thing on your list. Put it there.", "— the cat"],
+    ["There is a very good book waiting for you. It is not going anywhere. Neither are you, for tonight.", "— the cat"],
+    ["Breathe in. Breathe out. The week cannot follow you here.", "— the cat, your guardian"],
+    ["Soft music. Dim light. One blanket. This is the prescription.", "— the cat, M.D. (Medicine of Doing-nothing)"],
+  ];
+
+  let lastWisdomIdx = -1;
+  function newWisdom() {
+    let idx;
+    do { idx = Math.floor(Math.random()*wisdoms.length); } while(idx===lastWisdomIdx);
+    lastWisdomIdx = idx;
+    const [text, author] = wisdoms[idx];
+    const bubble = document.getElementById('wisdomBubble');
+    bubble.innerHTML = `<div><span>${text}</span><span class="wisdom-author">${author}</span></div>`;
+    bubble.classList.remove('wisdom-animate');
+    void bubble.offsetWidth;
+    bubble.classList.add('wisdom-animate');
+    const cat = document.getElementById('bigCat');
+    cat.style.transform = 'scale(1.25) rotate(8deg)';
+    setTimeout(()=> cat.style.transform = '', 300);
+  }
+</script>
+</body>
+</html>
